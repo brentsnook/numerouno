@@ -1,0 +1,29 @@
+mkdir -p pkg
+mv numerouno-0.0.1.gem pkg/numerouno-0.** Invoke gem (first_time)
+** Invoke pkg/numerouno-0.0.1.gem (first_time)
+** Invoke pkg (first_time)
+** Execute pkg
+** Invoke History.txt (first_time, not_needed)
+** Invoke Manifest.txt (first_time, not_needed)
+** Invoke PostInstall.txt (first_time, not_needed)
+** Invoke README.rdoc (first_time, not_needed)
+** Invoke Rakefile (first_time, not_needed)
+** Invoke features/development.feature (first_time, not_needed)
+** Invoke features/steps/common.rb (first_time, not_needed)
+** Invoke features/steps/env.rb (first_time, not_needed)
+** Invoke lib/numerouno.rb (first_time, not_needed)
+** Invoke script/console (first_time, not_needed)
+** Invoke script/destroy (first_time, not_needed)
+** Invoke script/generate (first_time, not_needed)
+** Invoke spec/numerouno_spec.rb (first_time, not_needed)
+** Invoke spec/spec.opts (first_time, not_needed)
+** Invoke spec/spec_helper.rb (first_time, not_needed)
+** Invoke tasks/rspec.rake (first_time, not_needed)
+** Invoke test/test_helper.rb (first_time, not_needed)
+** Invoke test/test_numerouno.rb (first_time, not_needed)
+** Execute pkg/numerouno-0.0.1.gem
+  Successfully built RubyGem
+  Name: numerouno
+  Version: 0.0.1
+  File: numerouno-0.0.1.gem
+** Execute gem
