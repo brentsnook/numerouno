@@ -53,6 +53,8 @@ Feature: Recognise simple numbers
     Then an error will be raised stating that no number was found
  
   Scenario: Number string contains noise
+    When 'a bratwurst costs two euros' is parsed
+    Then the number will be 2
    # 
    # Scenario Outline: Parse normal numbers
    #   When <string> is parsed 
