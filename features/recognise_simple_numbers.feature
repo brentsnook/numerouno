@@ -49,6 +49,8 @@ Feature: Recognise simple numbers
     Then the number will be 10
 
   Scenario: No number found
+    When 'gibberish' is parsed
+    Then an error will be raised stating that no number was found
  
   Scenario: Number string contains noise
    # 
