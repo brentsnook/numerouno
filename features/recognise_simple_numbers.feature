@@ -1,7 +1,7 @@
 Feature: Recognise simple numbers
 
   As a person parsing number strings 
-  I want to obtain the numeric representation of a string containing simple numbers
+  I want to parse strings containing simple numbers
   So that I can easily convert number strings into their numeric representation
 
   Scenario: Recognise 0
@@ -55,6 +55,7 @@ Feature: Recognise simple numbers
   Scenario: Number string contains noise
     When 'a bratwurst costs two euros' is parsed
     Then the number will be 2
+
    # 
    # Scenario Outline: Parse normal numbers
    #   When <string> is parsed 
