@@ -1,7 +1,7 @@
-Feature: Recognise powers of 10
+Feature: Recognise powers of ten
 
   As a person parsing number strings 
-  I want to parse strings containing numbers that are powers of 10
+  I want to parse strings containing numbers that contain powers of ten
   So that I can easily convert number strings into their numeric representation
 
   Scenario: Recognise 11

@@ -1,7 +1,7 @@
-Feature: Recognise simple numbers
+Feature: Recognise from zero to ten
 
   As a person parsing number strings 
-  I want to parse strings containing simple numbers
+  I want to parse strings containing zero to ten
   So that I can easily convert number strings into their numeric representation
 
   Scenario: Recognise 0

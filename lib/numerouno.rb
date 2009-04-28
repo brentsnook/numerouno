@@ -39,6 +39,8 @@ module Numerouno
       ['thirty', 30],
       ['forty', 40],
       ['fifty', 50],
+      
+      ['hundred', 100]
     ]
     
     NUMBER_LOOKUP = NUMBER_STRINGS.inject(Hash.new) do |hash, map|
@@ -80,14 +82,55 @@ module Numerouno
     def string_exhausted?
       @string.sub(' ', '').empty?
     end  
-  end  
+  end 
   
+  class PowersOfTen 
+    
+    def self.amalgamate numbers
+      numbers.each_with_index do |number, index|
+        if number and (number % 10 == 0)
+          number_to_right = numbers[index + 1]
+          if number_to_right and number_to_right < 10
+            numbers[index] = number + number_to_right
+            numbers[index + 1] = nil
+          end  
+        end  
+      end
+      
+      numbers.compact!
+    end
+  end
+
+  class PowersOfOneHundred 
+    
+    def self.amalgamate numbers
+      numbers.each_with_index do |number, index|
+        if index > 0 and number and (number % 100 == 0)
+          number_to_left = numbers[index - 1]
+          numbers[index] = number * number_to_left
+          numbers[index - 1] = nil  
+        end  
+      end
+      
+      numbers.compact!
+    end
+  end
+    
   module Parser
     def self.number_from string
       numbers = Search.new(string).find_all_numbers 
       numbers.empty? ? raise(NoNumberFoundError, "No number found in string: #{string}") :
-        numbers.inject(0){|sum, add| sum + add}
-    end 
+        total(numbers)
+    end
+    
+    private
+    
+    def self.total numbers
+      PowersOfTen.amalgamate numbers
+      PowersOfOneHundred.amalgamate numbers
+      numbers.inject(0){|sum, add| sum + add}
+    end  
+  
   end
         
   module StringExtensions
