@@ -40,7 +40,8 @@ module Numerouno
       ['forty', 40],
       ['fifty', 50],
       
-      ['hundred', 100]
+      ['hundred', 100],
+      ['thousand', 1000]
     ]
     
     NUMBER_LOOKUP = NUMBER_STRINGS.inject(Hash.new) do |hash, map|
@@ -88,7 +89,7 @@ module Numerouno
     
     def self.amalgamate numbers
       numbers.each_with_index do |number, index|
-        if number and (number % 10 == 0)
+        if is_power_of_10? number
           number_to_right = numbers[index + 1]
           if number_to_right and number_to_right < 10
             numbers[index] = number + number_to_right
@@ -99,13 +100,74 @@ module Numerouno
       
       numbers.compact!
     end
+    
+    def self.is_power_of_10? number
+      number and (number % 10 == 0) and number < 100
+    end  
   end
 
   class PowersOfOneHundred 
     
+    def initialize numbers
+      @numbers = numbers
+    end  
+    
+    def self.amalgamate numbers
+      new(numbers).amalgamate numbers
+    end  
+    
+    def amalgamate numbers
+      @numbers.each_with_index do |number, index|
+        @current = index
+        if number_is_power_of_100?
+          apply :*, to_left if number_to_left?
+          apply :+, to_right if number_to_right?
+        end 
+      end
+      
+      @numbers.compact!
+    end
+    
+    def number_to_left?
+      @current > 0
+    end 
+    
+    def number_to_right?
+      @current < (@numbers.length - 1)
+    end 
+    
+    def apply operation, index
+      @numbers[@current] = number.send operation, @numbers[index]
+      @numbers[index] = nil
+    end  
+    
+    def add_number_to_right
+      @numbers[@current] = number + @numbers[to_right]
+      @numbers[to_right] = nil
+    end
+    
+    def to_left
+      @current - 1
+    end  
+    
+    def to_right
+      @current + 1
+    end
+    
+    def number_is_power_of_100?
+      number and (number % 100 == 0) and number < 1000
+    end 
+    
+    def number
+      @numbers[@current]
+    end   
+  end
+  
+  class PowersOfOneThousand
+    
     def self.amalgamate numbers
       numbers.each_with_index do |number, index|
-        if index > 0 and number and (number % 100 == 0)
+        if index > 0 and is_power_of_1000?(number)
           number_to_left = numbers[index - 1]
           numbers[index] = number * number_to_left
           numbers[index - 1] = nil  
@@ -113,6 +175,10 @@ module Numerouno
       end
       
       numbers.compact!
+    end
+    
+    def self.is_power_of_1000? number
+      number and (number % 1000 == 0)
     end
   end
     
@@ -128,6 +194,7 @@ module Numerouno
     def self.total numbers
       PowersOfTen.amalgamate numbers
       PowersOfOneHundred.amalgamate numbers
+      PowersOfOneThousand.amalgamate numbers
       numbers.inject(0){|sum, add| sum + add}
     end  
   
