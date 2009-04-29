@@ -3,7 +3,7 @@ When /^'(.*)' is parsed$/ do |string|
 end
 
 Then /^the number will be (.*)$/ do |parsed_number|
-  @string.parse_i.should == parsed_number.to_i
+  @string.parse_i.should == parsed_number.gsub(',', '').to_i
 end
 
 Then /^an error will be raised stating that no number was found$/ do

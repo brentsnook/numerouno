@@ -41,7 +41,8 @@ module Numerouno
       ['fifty', 50],
       
       ['hundred', 100],
-      ['thousand', 1000]
+      ['thousand', 1000],
+      ['million', 1000000]
     ]
     
     NUMBER_LOOKUP = NUMBER_STRINGS.inject(Hash.new) do |hash, map|
@@ -87,19 +88,16 @@ module Numerouno
 
   class Amalgamation
     
-    def initialize power, numbers
-      @numbers = numbers
+    def initialize power
       @power = power
     end  
     
-    def self.apply power_of_ten, numbers
-      # there must be a power operator somewhere....
-      power = 1
-      power_of_ten.times{power = power * 10}
-      new(power, numbers).run
+    def self.apply_for power
+      new(power)
     end  
     
-    def run
+    def to numbers
+      @numbers = numbers
       @numbers.each_with_index do |number, index|
         @current = index
         if number_is_correct_power?
@@ -156,7 +154,9 @@ module Numerouno
     private
     
     def self.total numbers
-      (1..3).each {|power_of_ten| Amalgamation.apply(power_of_ten, numbers)}
+      [10, 100, 1000, 1000000].each do |power|
+        Amalgamation.apply_for(power).to numbers
+      end
       numbers.inject(0){|sum, add| sum + add}
     end  
   

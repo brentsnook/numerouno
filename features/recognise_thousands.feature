@@ -6,12 +6,12 @@ Feature: Recognise thousands
 
   Scenario: Recognise a thousand with no multiplier
     When 'a thousand' is parsed
-    Then the number will be 1000
+    Then the number will be 1,000
 
   Scenario: Recognise several thousand
     When 'six hundred and thirty seven thousand' is parsed
-    Then the number will be 637000
+    Then the number will be 637,000
 
   Scenario: Recognise numbers between thousands
     When 'six hundred and thirty seven thousand, four hundred and thirty eight' is parsed
-    Then the number will be 637438
+    Then the number will be 637,438
