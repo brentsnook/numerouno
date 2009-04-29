@@ -42,7 +42,8 @@ module Numerouno
       
       ['hundred', 100],
       ['thousand', 1000],
-      ['million', 1000000]
+      ['million', 1000000],
+      ['billion', 1000000000]
     ]
     
     NUMBER_LOOKUP = NUMBER_STRINGS.inject(Hash.new) do |hash, map|
@@ -156,7 +157,7 @@ module Numerouno
     private
     
     def self.total numbers
-      [10, 100, 1000, 1000000].each do |power|
+      [10, 100, 1000, 1000000, 1000000000].each do |power|
         Amalgamation.apply_for(power).to numbers
       end
       numbers.inject(0){|sum, add| sum + add}
