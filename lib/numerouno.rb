@@ -92,7 +92,10 @@ module Numerouno
       @power = power
     end  
     
-    def self.apply power, numbers
+    def self.apply power_of_ten, numbers
+      # there must be a power operator somewhere....
+      power = 1
+      power_of_ten.times{power = power * 10}
       new(power, numbers).run
     end  
     
@@ -153,9 +156,7 @@ module Numerouno
     private
     
     def self.total numbers
-      Amalgamation.apply(10, numbers)
-      Amalgamation.apply(100, numbers)
-      Amalgamation.apply(1000, numbers)
+      (1..3).each {|power_of_ten| Amalgamation.apply(power_of_ten, numbers)}
       numbers.inject(0){|sum, add| sum + add}
     end  
   
