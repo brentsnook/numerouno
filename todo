@@ -1,3 +1,4 @@
+- split library script into separate class files
 - add unit level specs around amalgamation classes and others
 - decide on name: 'digits' ?
 - handle slang?

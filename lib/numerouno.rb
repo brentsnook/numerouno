@@ -83,27 +83,6 @@ module Numerouno
     def string_exhausted?
       @string.sub(' ', '').empty?
     end  
-  end 
-  
-  class PowersOfTen 
-    
-    def self.amalgamate numbers
-      numbers.each_with_index do |number, index|
-        if is_power_of_10? number
-          number_to_right = numbers[index + 1]
-          if number_to_right and number_to_right < 10
-            numbers[index] = number + number_to_right
-            numbers[index + 1] = nil
-          end  
-        end  
-      end
-      
-      numbers.compact!
-    end
-    
-    def self.is_power_of_10? number
-      number and (number % 10 == 0) and number < 100
-    end  
   end
 
   class Amalgamation
@@ -121,7 +100,7 @@ module Numerouno
       @numbers.each_with_index do |number, index|
         @current = index
         if number_is_correct_power?
-          apply :*, to_left if number_to_left?
+          apply :*, to_left if number_to_left? and @power > 10
           apply :+, to_right if number_to_right?
         end 
       end
@@ -174,7 +153,7 @@ module Numerouno
     private
     
     def self.total numbers
-      PowersOfTen.amalgamate numbers
+      Amalgamation.apply(10, numbers)
       Amalgamation.apply(100, numbers)
       Amalgamation.apply(1000, numbers)
       numbers.inject(0){|sum, add| sum + add}
