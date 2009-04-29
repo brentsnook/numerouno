@@ -106,20 +106,21 @@ module Numerouno
     end  
   end
 
-  class PowersOfOneHundred 
+  class Amalgamation
     
-    def initialize numbers
+    def initialize power, numbers
       @numbers = numbers
+      @power = power
     end  
     
-    def self.amalgamate numbers
-      new(numbers).amalgamate numbers
+    def self.apply power, numbers
+      new(power, numbers).run
     end  
     
-    def amalgamate numbers
+    def run
       @numbers.each_with_index do |number, index|
         @current = index
-        if number_is_power_of_100?
+        if number_is_correct_power?
           apply :*, to_left if number_to_left?
           apply :+, to_right if number_to_right?
         end 
@@ -154,32 +155,13 @@ module Numerouno
       @current + 1
     end
     
-    def number_is_power_of_100?
-      number and (number % 100 == 0) and number < 1000
+    def number_is_correct_power?
+      number and (number % @power == 0) and number < (@power * 10)
     end 
     
     def number
       @numbers[@current]
     end   
-  end
-  
-  class PowersOfOneThousand
-    
-    def self.amalgamate numbers
-      numbers.each_with_index do |number, index|
-        if index > 0 and is_power_of_1000?(number)
-          number_to_left = numbers[index - 1]
-          numbers[index] = number * number_to_left
-          numbers[index - 1] = nil  
-        end  
-      end
-      
-      numbers.compact!
-    end
-    
-    def self.is_power_of_1000? number
-      number and (number % 1000 == 0)
-    end
   end
     
   module Parser
@@ -193,8 +175,8 @@ module Numerouno
     
     def self.total numbers
       PowersOfTen.amalgamate numbers
-      PowersOfOneHundred.amalgamate numbers
-      PowersOfOneThousand.amalgamate numbers
+      Amalgamation.apply(100, numbers)
+      Amalgamation.apply(1000, numbers)
       numbers.inject(0){|sum, add| sum + add}
     end  
   
