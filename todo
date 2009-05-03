@@ -1,7 +1,12 @@
-- split library script into separate class files
-- add unit level specs around amalgamation classes and others
-- decide on name: 'digits' ?
+- spec for combiner
+- spec for parser
+- spec for search
+- readme file
+- anything else present in baldrick project?
+- better method name than parse_i?
+
+
+
 - handle slang?
   - grand
   - K?
-- better method name than parse_i?
