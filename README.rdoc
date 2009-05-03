@@ -1,32 +1,52 @@
-= numerouno
+= Numerouno
 
-* FIX (url)
+* http://github.com/brentsnook/numerouno
 
-== DESCRIPTION:
+English natural language parser for numbers.
 
-FIX (describe your package)
+Parse 'five' to return 5
+Parse 'seven hundred and fifty two billion, four hundred and twenty million, sixty thousand and forty two' to return 752,420,060,042
+Parse 'fear und foomsich' to have an error thrown in your face because it doesn't recognise German.
 
-== FEATURES/PROBLEMS:
+== Installation
 
-* FIX (list of features or problems)
+  sudo gem install numerouno
 
-== SYNOPSIS:
+=== Building the Gem yourself
 
-  FIX (code sample of usage)
+Grab the code from github:
 
-== REQUIREMENTS:
+  git clone git://github.com/brentsnook/numerouno.git
+  cd numerouno
+  rake install_gem
 
-* FIX (list of requirements)
+== Use
 
-== INSTALL:
+Just require numerouno to add magical number parsing powers to your strings:
 
-* FIX (sudo gem install, anything else)
+  require 'numerouno'
+  'sixty five'.parse_i
 
-== LICENSE:
+Or if you're a sook who doesn't like the idea of String being opened up:
+
+  require 'numerouno/parsing'
+  Numerouno.parse 'sixty five'
+
+== How does it all work?
+
+The English language has explicit rules for expressing numbers. Numeruno attempts to recognise strings based on these rules.
+
+Check out http://wiki.github.com/brentsnook/numerouno for details.
+
+== What is it good for?
+
+The main serving suggestion is to toss it with Chronic and Cucumber for an even tastier feature language salad.
+
+== License
 
 (The MIT License)
 
-Copyright (c) 2009 FIXME full name
+Copyright (c) 2009 Brent Snook http://fuglylogic.com
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
