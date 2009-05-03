@@ -50,3 +50,15 @@ describe Numerouno::Combiner do
     numbers
   end
 end
+
+describe Numerouno::CombinerMethods do
+  
+  include Numerouno::CombinerMethods
+  
+  it 'should allow a combiner to be built' do
+    numbers = [2, 100, 5]
+    combine(numbers).of_power(100).apply!
+    
+    numbers.should eql([205])
+  end  
+end
