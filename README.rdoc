@@ -29,7 +29,7 @@ Grab the code from github:
 Just require numerouno to add magical number parsing powers to your strings:
 
   require 'numerouno'
-  'sixty five'.parse_number
+  'sixty five'.as_number
 
 Or if you're a sook who doesn't like the idea of String being opened up:
 
