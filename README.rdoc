@@ -4,11 +4,13 @@
 
 English natural language parser for numbers.
 
-Parse 'five' to return 5
-Parse 'seven hundred and fifty two billion, four hundred and twenty million, sixty thousand and forty two' to return 752,420,060,042
-Parse 'fear und foomsich' to have an error thrown in your face because it doesn't recognise German.
+* Parse 'five' to return 5
+* Parse 'seven hundred and fifty two billion, four hundred and twenty million, sixty thousand and forty two' to return 752,420,060,042
+* Parse 'siebenundzwanzig' to have an error thrown in your face because it doesn't recognise German.
 
 == Installation
+
+Whoah, hang on there. Not up on Rubyforge yet but hopefully soon. When it is:
 
   sudo gem install numerouno
 
