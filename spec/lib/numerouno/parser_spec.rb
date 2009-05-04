@@ -5,7 +5,7 @@ describe Numerouno::Parser do
   it 'should attempt to combine numbers for different powers of ten' do
     pending 'need to figure out syntax for multiple invocation stub' do
       subject.stub!(:numbers_within).and_return([0])
-      combiners = [10, 100, 3, 1000, 1000000, 1000000000].collect do |power|
+      combiners = [10, 100, 3, 1000, 1000000, 1000000000, 1000000000000].collect do |power|
         combiner = mock :combiner
         combiner.should_receive(:of_power).with power
       end

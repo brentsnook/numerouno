@@ -13,7 +13,7 @@ module Numerouno
     private
   
     def self.total numbers
-      [10, 100, 1000, 1000000, 1000000000].each do |power|
+      [10, 100, 1000, 1000000, 1000000000, 1000000000000].each do |power|
         combine(numbers).of_power(power).apply!
       end
       numbers.inject(0){|sum, add| sum + add}

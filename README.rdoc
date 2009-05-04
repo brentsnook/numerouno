@@ -8,6 +8,8 @@ English natural language parser for numbers.
 * Parse 'seven hundred and fifty two billion, four hundred and twenty million, sixty thousand and forty two' to return 752,420,060,042
 * Parse 'siebenundzwanzig' to have an error thrown in your face because it doesn't recognise German.
 
+Recognises numbers in the trillions.
+
 == Installation
 
 Whoah, hang on there. Not up on Rubyforge yet but hopefully soon. When it is:
@@ -31,7 +33,7 @@ Just require numerouno to add magical number parsing powers to your strings:
 
 Or if you're a sook who doesn't like the idea of String being opened up:
 
-  require 'numerouno/parsing'
+  require 'numerouno-parsing'
   Numerouno.parse 'sixty five'
 
 == How does it all work?
