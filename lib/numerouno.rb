@@ -4,7 +4,7 @@ module Numerouno
 
   module StringExtensions
   
-    def parse_i
+    def parse_number
       Numerouno.parse self
     end
   end
