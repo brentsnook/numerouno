@@ -3,17 +3,17 @@ require File.dirname(__FILE__) + '/../../spec_helper.rb'
 describe Numerouno::Parser do
   
   it 'should attempt to combine numbers for different powers of ten' do
-    pending 'need to figure out syntax for multiple invocation stub' do
-      subject.stub!(:numbers_within).and_return([0])
-      combiners = [10, 100, 3, 1000, 1000000, 1000000000, 1000000000000].collect do |power|
-        combiner = mock :combiner
-        combiner.should_receive(:of_power).with power
-      end
-    
-      subject.stub!(:combine).exactly(6).times.and_return combiners
-    
-      subject.number_from ''
+    subject.stub!(:numbers_within).and_return([0])
+    combiners = [10, 100, 1000, 1000000, 1000000000, 1000000000000].collect do |power|
+      combiner = mock :combine
+      combiner.should_receive(:of_power).with(power).and_return combiner
+      combiner.should_receive(:apply!)
+      combiner
     end
+    
+    subject.stub!(:combine).exactly(6).times.and_return *combiners
+    
+    subject.number_from ''
   end
   
   it 'should sum all found numbers' do
