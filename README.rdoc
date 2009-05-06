@@ -6,7 +6,7 @@ English natural language parser for numbers.
 
 * Parse 'five' to return 5
 * Parse 'seven hundred and fifty two billion, four hundred and twenty million, sixty thousand and forty two' to return 752,420,060,042
-* Parse 'siebenundzwanzig' to have an error thrown in your face because it doesn't recognise German.
+* Parse 'siebenundzwanzig' to have it fail because it doesn't recognise German.
 
 Recognises numbers in the trillions.
 
