@@ -12,8 +12,6 @@ Recognises numbers in the trillions.
 
 == Installation
 
-Whoah, hang on there. Not up on Rubyforge yet but hopefully soon. When it is:
-
   sudo gem install numerouno
 
 === Building the Gem yourself
