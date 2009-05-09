@@ -1,6 +1,7 @@
 = Numerouno
 
 * http://github.com/brentsnook/numerouno
+* http://groups.google.com/group/numerouno-number-parsing
 
 English natural language parser for numbers.
 
