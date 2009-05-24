@@ -3,3 +3,9 @@
 * 1 major enhancement:
   * Initial release
   * mmmm...has that new gem smell
+
+
+== 1.0.0 2009-05-15
+
+* 1 major enhancement:
+  * Supports literal number strings like '7'
