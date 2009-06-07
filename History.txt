@@ -5,7 +5,7 @@
   * mmmm...has that new gem smell
 
 
-== 1.0.0 2009-05-15
+== 0.1.0 2009-06-17
 
-* 1 major enhancement:
+* 1 minor enhancement:
   * Supports literal number strings like '7'
