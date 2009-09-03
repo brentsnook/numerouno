@@ -12,7 +12,7 @@ module Numerouno
     
     def self.parse_literal_within string
       number = string.to_i
-      number if number != 0 or string.start_with?(0.to_s)  
+      number if number != 0 or string =~ /^0/  
     end
     
     def self.parse_phrase_within string

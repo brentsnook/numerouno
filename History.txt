@@ -1,11 +1,14 @@
-== 0.0.1 2009-05-07
+== 0.1.1 2009-09-03
 
-* 1 major enhancement:
-  * Initial release
-  * mmmm...has that new gem smell
-
+* Compatibility with Ruby 1.8.6
 
 == 0.1.0 2009-06-17
 
 * 1 minor enhancement:
   * Supports literal number strings like '7'
+
+== 0.0.1 2009-05-07
+
+* 1 major enhancement:
+  * Initial release
+  * mmmm...has that new gem smell
