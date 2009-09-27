@@ -1,26 +1,32 @@
-%w[rubygems rake rake/clean fileutils newgem rubigen].each { |f| require f }
+%w[rubygems rake rake/clean hoe fileutils newgem rubigen].each { |f| require f }
 require File.dirname(__FILE__) + '/lib/numerouno'
 
-# Generate all the Rake tasks
-# Run 'rake -T' to see list of generated tasks (from gem root directory)
-$hoe = Hoe.new('numerouno', Numerouno::VERSION) do |p|
-  p.developer 'Brent Snook', 'brent@fuglylogic.com'
-  p.summary = %q{English natural language parser for numbers.}
-  p.changes = p.paragraphs_of("History.txt", 0..1).join("\n\n")
-  p.rubyforge_name = p.name
-  p.extra_dev_deps = [
+Hoe.spec 'numerouno' do
+  
+  version = Numerouno::VERSION
+  
+  developer 'Brent Snook', 'brent@fuglylogic.com'
+  summary = %q{English natural language parser for numbers.}
+  changes = paragraphs_of("History.txt", 0..1).join("\n\n")
+  rubyforge_name = name
+  extra_dev_deps = [
     ['newgem', ">= #{::Newgem::VERSION}"],
-    ['rspec', '>= 1.2.4'],
-    ['cucumber', '>= 0.3.1']
+    ['rspec', '>= 1.2.8'],
+    ['cucumber', '>= 0.3.103']
   ]
   
-  p.clean_globs |= %w[**/.DS_Store tmp *.log]
-  path = (p.rubyforge_name == p.name) ? p.rubyforge_name : "\#{p.rubyforge_name}/\#{p.name}"
-  p.remote_rdoc_dir = File.join(path.gsub(/^#{p.rubyforge_name}\/?/,''), 'rdoc')
-  p.rsync_args = '-av --delete --ignore-errors'
+  clean_globs |= %w[**/.DS_Store tmp *.log]
+  path = (rubyforge_name == name) ? rubyforge_name : "\#{rubyforge_name}/\#{name}"
+  remote_rdoc_dir = File.join(path.gsub(/^#{rubyforge_name}\/?/,''), 'rdoc')
+  rsync_args = '-av --delete --ignore-errors'
 end
 
-require 'newgem/tasks' # load /tasks/*.rake
+require 'cucumber/rake/task'
+Cucumber::Rake::Task.new(:features) do |t|
+  t.cucumber_opts = "features --format pretty"
+end
+
+require 'newgem/tasks'
 Dir['tasks/**/*.rake'].each { |t| load t }
 
 task :default => [:spec, :features]
