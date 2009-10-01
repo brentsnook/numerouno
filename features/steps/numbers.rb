@@ -3,9 +3,9 @@ When /^'(.*)' is parsed$/ do |string|
   @stimulus = lambda { string.as_number }
 end
 
-When /^'(.*)' is substituted$/ do |string|
-  pending
-  @stimulus = lambda { string.as_number }
+When /^'(.*)' has numbers replaced$/ do |string|
+  @string = string
+  @stimulus = lambda { string.replace_numbers }
 end
 
 Then /^the number will be (.*)$/ do |parsed_number|
@@ -18,3 +18,10 @@ Then /^an error will be raised stating that no number was found$/ do
     "No number found in string: #{@string}" 
   ) 
 end
+
+Then /^the string will be '(.*)'$/ do |replaced_string|
+  pending
+  @stimulus.call.should == replaced_string
+end
+
+

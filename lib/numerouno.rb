@@ -7,6 +7,10 @@ module Numerouno
     def as_number
       Numerouno.parse self
     end
+    
+    def replace_numbers
+      self
+    end
   end
      
 end
