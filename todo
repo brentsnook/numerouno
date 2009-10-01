@@ -1,9 +1,10 @@
 == 0.1.2
 
- - upgrade hoe
- - replace cukes features with "in order to"
+
  - allow a part of a string to be replaced
 
+
+====== later
 
 - add lighthouse project
 

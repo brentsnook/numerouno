@@ -1,8 +1,7 @@
-Feature: Recognise billions
+Feature: Recognise trillions
 
-  As a person parsing number strings 
+  So that I can convert number strings into numerals
   I want to parse strings containing trillions
-  So that I can easily convert number strings into their numeric representation
 
   Scenario: Recognise a trillion with no multiplier
     When 'a trillion' is parsed

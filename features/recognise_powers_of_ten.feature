@@ -1,8 +1,7 @@
 Feature: Recognise powers of ten
 
-  As a person parsing number strings 
-  I want to parse strings containing numbers that contain powers of ten
-  So that I can easily convert number strings into their numeric representation
+  So that I can convert number strings into numerals
+  I want to parse strings containing powers of ten
 
   Scenario Outline: Parse normal numbers
     When '<string>' is parsed 

@@ -1,8 +1,7 @@
 Feature: Recognise billions
 
-  As a person parsing number strings 
+  So that I can convert number strings into numerals
   I want to parse strings containing billions
-  So that I can easily convert number strings into their numeric representation
 
   Scenario: Recognise a billion with no multiplier
     When 'a billion' is parsed

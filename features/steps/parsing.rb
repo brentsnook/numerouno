@@ -1,15 +1,19 @@
 When /^'(.*)' is parsed$/ do |string|
   @string = string
+  @stimulus = lambda { string.as_number }
+end
+
+When /^'(.*)' is substituted$/ do |string|
+  pending
+  @stimulus = lambda { string.as_number }
 end
 
 Then /^the number will be (.*)$/ do |parsed_number|
-  @string.as_number.should == parsed_number.gsub(',', '').to_i
+  @stimulus.call.should == parsed_number.gsub(',', '').to_i
 end
 
 Then /^an error will be raised stating that no number was found$/ do
-  lambda { 
-    @string.as_number 
-  }.should raise_error( 
+  @stimulus.should raise_error( 
     Numerouno::NoNumberFoundError, 
     "No number found in string: #{@string}" 
   ) 

@@ -1,8 +1,7 @@
 Feature: Recognise thousands
 
-  As a person parsing number strings 
+  So that I can convert number strings into numerals
   I want to parse strings containing thousands
-  So that I can easily convert number strings into their numeric representation
 
   Scenario: Recognise a thousand with no multiplier
     When 'a thousand' is parsed

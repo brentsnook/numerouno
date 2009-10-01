@@ -1,8 +1,7 @@
 Feature: Recognise millions
 
-  As a person parsing number strings 
+  So that I can convert number strings into numerals
   I want to parse strings containing millions
-  So that I can easily convert number strings into their numeric representation
 
   Scenario: Recognise a million with no multiplier
     When 'a million' is parsed

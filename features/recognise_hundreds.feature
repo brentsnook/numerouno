@@ -1,8 +1,7 @@
 Feature: Recognise hundreds
 
-  As a person parsing number strings 
+  So that I can convert number strings into numerals
   I want to parse strings containing hundreds
-  So that I can easily convert number strings into their numeric representation
 
   Scenario: Recognise a hundred with no multiplier
     When 'a hundred' is parsed
