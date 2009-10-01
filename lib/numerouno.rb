@@ -9,7 +9,7 @@ module Numerouno
     end
     
     def replace_numbers
-      self
+      Numerouno.replace_numbers self
     end
   end
      
