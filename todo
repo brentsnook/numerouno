@@ -1,3 +1,10 @@
+== 0.1.2
+
+ - upgrade hoe
+ - replace cukes features with "in order to"
+ - allow a part of a string to be replaced
+
+
 - add lighthouse project
 
 - support positive and negative?

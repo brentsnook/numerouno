@@ -2,23 +2,16 @@
 require File.dirname(__FILE__) + '/lib/numerouno'
 
 Hoe.spec 'numerouno' do
-  
   version = Numerouno::VERSION
-  
   developer 'Brent Snook', 'brent@fuglylogic.com'
-  summary = %q{English natural language parser for numbers.}
-  changes = paragraphs_of("History.txt", 0..1).join("\n\n")
-  rubyforge_name = name
-  extra_dev_deps = [
+  self.readme_file = 'README.rdoc'
+  self.clean_globs |= %w[**/.DS_Store tmp *.log]
+  self.rsync_args = '-av --delete --ignore-errors' # is this needed?
+  self.extra_dev_deps = [
     ['newgem', ">= #{::Newgem::VERSION}"],
     ['rspec', '>= 1.2.8'],
     ['cucumber', '>= 0.3.103']
   ]
-  
-  clean_globs |= %w[**/.DS_Store tmp *.log]
-  path = (rubyforge_name == name) ? rubyforge_name : "\#{rubyforge_name}/\#{name}"
-  remote_rdoc_dir = File.join(path.gsub(/^#{rubyforge_name}\/?/,''), 'rdoc')
-  rsync_args = '-av --delete --ignore-errors'
 end
 
 require 'cucumber/rake/task'

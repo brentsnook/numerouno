@@ -3,6 +3,8 @@
 * http://github.com/brentsnook/numerouno
 * http://groups.google.com/group/numerouno-number-parsing
 
+== Description
+
 English natural language parser for numbers.
 
 * Parse 'five' to return 5
@@ -11,19 +13,27 @@ English natural language parser for numbers.
 
 Recognises numbers in the trillions.
 
+=== How does it all work?
+
+The English language has explicit rules for expressing numbers. Numeruno attempts to recognise strings based on these rules.
+
+Check out http://wiki.github.com/brentsnook/numerouno for details.
+
+=== What is it good for?
+
+The main serving suggestion is to toss it with Chronic[http://chronic.rubyforge.org/] and Cucumber[http://cukes.info/] for an even tastier BDD salad.
+
 == Installation
 
   sudo gem install numerouno
 
-=== Building the Gem yourself
-
-Grab the code from github:
+Or grab the code from Github and build yourself:
 
   git clone git://github.com/brentsnook/numerouno.git
   cd numerouno
   rake install_gem
 
-== Use
+== Synopsis
 
 Just require numerouno to add magical number parsing powers to your strings:
 
@@ -34,16 +44,6 @@ Or if you're a sook who doesn't like the idea of String being opened up:
 
   require 'numerouno-parsing'
   Numerouno.parse 'sixty five'
-
-== How does it all work?
-
-The English language has explicit rules for expressing numbers. Numeruno attempts to recognise strings based on these rules.
-
-Check out http://wiki.github.com/brentsnook/numerouno for details.
-
-== What is it good for?
-
-The main serving suggestion is to toss it with Chronic[http://chronic.rubyforge.org/] and Cucumber[http://cukes.info/] for an even tastier BDD salad.
 
 == License
 
