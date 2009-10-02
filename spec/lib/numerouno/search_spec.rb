@@ -4,15 +4,15 @@ describe Numerouno::Search do
   
   # a lot of the search functionality is already covered in the features
   
-  it 'should locate all numbers within a string' do
+  it 'will locate all numbers within a string' do
     search_for('seventy five thousand and forty two').should eql([70, 5, 1000, 40, 2])
   end  
   
-  it 'should not falsely identify partial numbers in powers of ten' do
+  it 'will not falsely identify partial numbers in powers of ten' do
     search_for('sixty seventy eighty ninety').should eql([60, 70, 80, 90])
   end
   
-  it 'should not falsely identify partial numbers in teens' do
+  it 'will not falsely identify partial numbers in teens' do
     search_for('fourteen sixteen seventeen eighteen nineteen').should eql([14, 16, 17, 18, 19])
   end
   
@@ -25,7 +25,7 @@ describe Numerouno::SearchMethods do
   
   include Numerouno::SearchMethods
   
-  it 'should allow a new search to be easily created' do
+  it 'will build a search' do
     numbers_within('one two three').should eql([1, 2, 3])  
   end
   
