@@ -3,9 +3,9 @@ When /^'(.*)' is parsed$/ do |string|
   @stimulus = lambda { string.as_number }
 end
 
-When /^'(.*)' has numbers replaced$/ do |string|
+When /^'(.*)' has numbers substituted$/ do |string|
   @string = string
-  @stimulus = lambda { string.replace_numbers }
+  @stimulus = lambda { string.sub_numbers }
 end
 
 Then /^the number will be (.*)$/ do |parsed_number|
@@ -23,5 +23,3 @@ Then /^the string will be '(.*)'$/ do |replaced_string|
   pending
   @stimulus.call.should == replaced_string
 end
-
-

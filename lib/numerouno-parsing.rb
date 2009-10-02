@@ -12,5 +12,6 @@ module Numerouno
   
   def self.parse string
     Parser.number_from string
-  end  
+  end
+  
 end

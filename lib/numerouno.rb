@@ -8,8 +8,8 @@ module Numerouno
       Numerouno.parse self
     end
     
-    def replace_numbers
-      Numerouno.replace_numbers self
+    def sub_numbers
+      Numerouno.substitute_numbers self
     end
   end
      
