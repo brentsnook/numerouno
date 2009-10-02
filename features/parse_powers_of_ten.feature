@@ -27,10 +27,10 @@ Feature: Recognise powers of ten
     | eighty    | 80      |
     | ninety    | 90      |
 
-  Scenario: Recognise 21 as separate words
+  Scenario: Parse 21 as separate words
     When 'twenty one' is parsed
     Then the number will be 21
   
-  Scenario: Recognise 21 as a single word
+  Scenario: Parse 21 as a single word
     When 'twentyone' is parsed
     Then the number will be 21
