@@ -3,8 +3,10 @@ $:.unshift(File.dirname(__FILE__)) unless
 
 [
   'combiner',
+  'numbers',
   'search',
-  'parser'
+  'parser',
+  'substituter'
 ].each {|file| require "numerouno/#{file}"}
 
 module Numerouno
@@ -12,6 +14,10 @@ module Numerouno
   
   def self.parse string
     Parser.number_from string
+  end
+  
+  def self.substitute_numbers string
+    Substituter.sub string
   end
   
 end

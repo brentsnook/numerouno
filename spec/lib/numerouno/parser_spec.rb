@@ -30,7 +30,7 @@ describe Numerouno::Parser do
   end
 end
 
-  describe Numerouno::Parser, 'will parse' do
+describe Numerouno::Parser, 'will parse' do
 
   it 'the number 0' do
     subject.number_from('0').should == 0
@@ -52,4 +52,8 @@ end
     subject.number_from('two 5').should == 2
   end
  
+end
+
+describe Numerouno::Parser, 'will substitute' do
+  
 end
