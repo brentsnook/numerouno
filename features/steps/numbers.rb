@@ -20,6 +20,5 @@ Then /^an error will be raised stating that no number was found$/ do
 end
 
 Then /^the string will be '(.*)'$/ do |replaced_string|
-  pending
   @stimulus.call.should == replaced_string
 end

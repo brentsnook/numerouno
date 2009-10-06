@@ -6,7 +6,7 @@ $:.unshift(File.dirname(__FILE__)) unless
   'numbers',
   'search',
   'parser',
-  'substituter'
+  'substitution'
 ].each {|file| require "numerouno/#{file}"}
 
 module Numerouno
@@ -17,7 +17,7 @@ module Numerouno
   end
   
   def self.substitute_numbers string
-    Substituter.sub string
+    Substitution.new(string).sub
   end
   
 end
