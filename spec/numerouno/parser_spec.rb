@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/spec_helper.rb'
 
 describe Numerouno::Parser do
 
-  it 'will combine numbers for powers of ten up to a trillion' do
+  it 'parses numbers for powers of ten up to a trillion' do
     subject.stub!(:numbers_within).and_return([0])
     combiners = [10, 100, 1000, 1000000, 1000000000, 1000000000000].collect do |power|
       combiner = mock :combine
@@ -16,50 +16,40 @@ describe Numerouno::Parser do
     subject.number_from ''
   end
 
-  it 'will sum all found numbers' do
+  it 'sums all found numbers' do
     subject.stub!(:numbers_within).and_return([7000, 600])
     subject.stub!(:combine).and_return mock('combiner', :null_object => true)
 
     subject.number_from('seven thousand, six hundred').should be(7600)
   end
 
-  it 'will fail when no numbers are found in string' do
+  it 'fails when no numbers are found in string' do
     lambda {
       subject.number_from 'I contain no numbers'
     }.should raise_error(Numerouno::NoNumberFoundError)
   end
 end
 
-describe Numerouno::Parser, 'will parse' do
+describe Numerouno::Parser, 'parsing' do
 
-  it 'the number 0' do
+  it 'parses the number 0' do
     subject.number_from('0').should == 0
   end  
 
-  it 'numbers greater than 0' do
+  it 'parses numbers greater than 0' do
     subject.number_from('5').should == 5
   end
 
-  it 'numbers less than 0' do
+  it 'parses numbers less than 0' do
     subject.number_from('-1').should == -1
   end
 
-  it 'numbers starting with a numeral as a literal number' do
+  it 'parses numbers starting with a numeral as a literal number' do
     subject.number_from('55 hundred').should == 55
   end
 
   it 'numbers starting with a alphabetic character as a phrase' do
     subject.number_from('two 5').should == 2
   end
-  
-  it 'uppercase numbers' do
-    subject.number_from('NINE is uppercase').should == 9
-  end
-  
-  it 'shouldnt parse "stone the crows" as 1'
  
-end
-
-describe Numerouno::Parser, 'will substitute' do
-  
 end

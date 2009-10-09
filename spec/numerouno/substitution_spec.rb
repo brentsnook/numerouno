@@ -2,11 +2,11 @@ require File.dirname(__FILE__) + '/spec_helper.rb'
 
 describe Numerouno::Substitution do
   
-  it 'returns a substituted string for number phrases with a single word' do
+  it 'substitutes number phrases with a single word' do
     substitution_for('my hamster has nine lives').should == 'my hamster has 9 lives'
   end
 
-  it 'returns a substituted string for number phrases with several words' do
+  it 'substitutes number phrases with several words' do
     substitution_for('the answer is forty two, really').should == 'the answer is 42, really'
   end
   
@@ -22,7 +22,7 @@ describe Numerouno::Substitution do
     substitution_for('I have seven hundred and seventy seven apricots').should == 'I have 777 apricots'
   end
   
-  it 'replaces upper case number phrases' do
+  it 'substitutes upper case number phrases' do
     substitution_for('my hamster has NINE lives').should == 'my hamster has 9 lives'
   end
     
