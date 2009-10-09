@@ -10,7 +10,7 @@ $:.unshift(File.dirname(__FILE__)) unless
 ].each {|file| require "numerouno/#{file}"}
 
 module Numerouno
-  VERSION = '0.1.1'
+  VERSION = '0.2.0'
   
   def self.parse string
     Parser.number_from string
