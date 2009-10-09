@@ -51,6 +51,12 @@ describe Numerouno::Parser, 'will parse' do
   it 'numbers starting with a alphabetic character as a phrase' do
     subject.number_from('two 5').should == 2
   end
+  
+  it 'uppercase numbers' do
+    subject.number_from('NINE is uppercase').should == 9
+  end
+  
+  it 'shouldnt parse "stone the crows" as 1'
  
 end
 

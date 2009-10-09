@@ -27,7 +27,7 @@ module Numerouno
     def search
       if match = next_match
         @string = string_without match
-        @numbers[match.pre_match.length] = NUMBER_LOOKUP[match.to_s]
+        @numbers[match.pre_match.length] = NUMBER_LOOKUP[match.to_s.downcase]
       else
         @string = ''
       end
@@ -39,7 +39,7 @@ module Numerouno
     
     def next_match
       NUMBER_STRINGS.collect do |number_string, number|
-        @string.match number_string
+        @string.match(/#{number_string}/i)
       end.compact.first
     end
     

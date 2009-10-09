@@ -28,3 +28,7 @@ Feature: Recognise from zero to ten
   Scenario: Number string contains noise
     When 'a bratwurst costs two euros' is parsed
     Then the number will be 2
+
+  Scenario: Number is upper case
+    When 'a bratwurst costs TWO euros' is parsed
+    Then the number will be 2

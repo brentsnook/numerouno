@@ -22,7 +22,9 @@ describe Numerouno::Substitution do
     substitution_for('I have seven hundred and seventy seven apricots').should == 'I have 777 apricots'
   end
   
-  it 'handles upper case'
+  it 'replaces upper case number phrases' do
+    substitution_for('my hamster has NINE lives').should == 'my hamster has 9 lives'
+  end
     
   def substitution_for string
     Numerouno::Substitution.new(string).sub

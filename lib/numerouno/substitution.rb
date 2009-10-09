@@ -16,7 +16,7 @@ module Numerouno
       NUMBER_STRINGS.each do |number_string, number|
         matches = matches_within(@source, number_string).merge(matches)
       end
-      
+
       matches.empty? ? @source : replace(matches, @source)
     end
     
@@ -25,7 +25,7 @@ module Numerouno
     def match_locations source, string
       match_locations = []
       scanner = StringScanner.new source
-      while(scanner.scan_until(/#{string}/))
+      while(scanner.scan_until(/#{string}/i))
         match_locations << scanner.pre_match.length
       end
       match_locations
@@ -48,7 +48,7 @@ module Numerouno
       
       phrase = source[range]
       
-      source.sub(phrase, Parser.number_from(phrase).to_s)
+      source.sub(/#{phrase.downcase}/i, Parser.number_from(phrase).to_s)
     end
   end
   
