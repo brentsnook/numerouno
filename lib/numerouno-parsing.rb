@@ -16,7 +16,7 @@ module Numerouno
     Parser.number_from string
   end
   
-  def self.substitute_numbers string
+  def self.replace string
     Substitution.new(string).sub
   end
   

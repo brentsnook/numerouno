@@ -1,4 +1,4 @@
-== 0.2.0 TBA
+== 0.2.0 2009-10-13
 
 * Replace a number phrase within a string with their numeral equivalents
 * Handle upper case number phrases

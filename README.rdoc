@@ -18,11 +18,7 @@ Recognises numbers in the trillions.
 The English language has explicit rules for expressing numbers. Numeruno attempts to recognise strings based on these rules.
 
 Check out http://wiki.github.com/brentsnook/numerouno for details.
-
-=== What is it good for?
-
-The main serving suggestion is to toss it with Chronic[http://chronic.rubyforge.org/] and Cucumber[http://cukes.info/] for an even tastier BDD salad.
-
+  
 == Installation
 
   sudo gem install numerouno
@@ -42,14 +38,29 @@ Just require numerouno to add magical number parsing powers to your strings:
     => 65
   '65'.as_number
     => 65
-  'two bit varmint'.replace_numbers
+  'two bit varmint'.sub_numbers
     => '2 bit varmint'
 
 Or if you're a sook who doesn't like the idea of String being opened up:
 
   require 'numerouno-parsing'
+
   Numerouno.parse 'sixty five'
-  Numerouno.replace_numbers 'two bit varmint'
+  Numerouno.replace 'two bit varmint'
+
+One serving suggestion is to use it to use it with your Cucumber[http://cukes.info/] steps.
+
+meaning_steps.rb
+
+  require 'numerouno'
+
+  When /the meaning of life is (.+)/ do |number|
+    42.should == number.as_number
+  end
+
+meaning_of_life.feature
+
+  Then the meaning of life is forty two
 
 == License
 
